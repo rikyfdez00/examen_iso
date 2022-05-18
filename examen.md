@@ -67,19 +67,19 @@ ricardo@A201_PC13:/$ sed -nE '/[A-Z]{0,2}[0-9]{4}[A-Z]{2,3}/p'
 
 **c)** Una fecha de la forma 04/05/2021
 
-```
+```bash
 ricardo@A201_PC13:/$ sed -nE '/[0-9]{2}\/[0-9]{2}\/[0-9]{4}/p'
 ```
 
 **d)** Una dirección MAC. Ejemplos: 00-09-0F-FE-00-01, 3C:A0:67:43:D3:92, …
 
-```
+```bash
 ricardo@A201_PC13:~$ sed -nE '/[0-9|A-F]{2}(\-|\:)[0-9|A-F]{2}\1[0-9|A-F]{2}\1[0-9|A-F]{2}\1[0-9|A-F]{2}\1[0-9|A-F]{2}/p'
 ```
 
 **e)** Una dirección IP. Ejemplos: 192.168.1.31, 10.0.0.1, 172.255.255.1, …
 
-```
+```bash
 ricardo@A201_PC13:~$ sed -nE '/[0-9]{0,3}\.[0-9]{0,3}\.[0-9]{0,3}\.[0-9]{0,3}/p'
 
 ```
@@ -106,32 +106,6 @@ Indica qué órdenes deberías introducir para automatizar la extracción de dat
 Observa que hay información del fichero CSV que se descarta (mail y localidad). Por otro lado, obviaremos las etiquetas de apertura y cierre del documento XML por claridad, limitándote a generar el código XML indicado.
 
 ```
-ricardo@A201_PC13:~$ sed -nE '/^.*,.*,/p' fichero.csv | sed '/,/d' > nombres
-
-ricardo@A201_PC13:~$ sed -nE '/[0-9]{9}/p' fichero.csv > numeros
-
-ricardo@A201_PC13:~$ sed -nE '1i\/t\<nombre\>' nombres >> nombres
-
-ricardo@A201_PC13:~$ sed -nE '$a\\<\/nombre\>' nombres >> nombres
-
-ricardo@A201_PC13:~$ sed -nE 's/\n//g' nombres > nombres
-
-ricardo@A201_PC13:~$ sed -nE '1i\/t\<telefono\>' numeros >> numeros
-
-ricardo@A201_PC13:~$ sed -nE '$a\\<\/telefono\>' numeros >> numeros
-
-ricardo@A201_PC13:~$ sed -nE 's/\n//g' numeros > numeros
-
-ricardo@A201_PC13:~$ echo "<usuario>" > final
-
-ricardo@A201_PC13:~$ cat nombres >> final
-
-ricardo@A201_PC13:~$ cat numeros >> final
-
-ricardo@A201_PC13:~$ echo "</usuario>" >> final
-
-ricardo@A201_PC13:~$ cat fin >> fichero.xml
-
 
 ```
 

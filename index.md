@@ -1,3 +1,4 @@
-examen Ricardo Fernandez Del blanco:
+examen de Ricardo Fernandez Del blanco:
 
-[examen.md](examen.md.1)
+[examen.md](examen.md)
+[examen.pdf](examen.pdf)
